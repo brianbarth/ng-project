@@ -12,4 +12,8 @@ export class AppComponent {
     this.rootItems.push(newItem);
     console.log(this.rootItems);
   }
+  onItemWasRemoved() {
+    this.rootItems.pop();
+    console.log(this.rootItems);
+  }
 }
