@@ -9,7 +9,8 @@ export class AppComponent {
   rootItems = ['Apples', 'Bananas', 'Cherries'];
 
   onItemWasAdded(newItem) {
-    this.rootItems.push(newItem);
+    const transItem = newItem.toUpperCase();
+    this.rootItems.push(transItem);
     console.log(this.rootItems);
   }
   onItemWasRemoved() {
