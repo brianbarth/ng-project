@@ -1,13 +1,22 @@
-<div>
-  <h1>This does stuff with arrays</h1>
+<div class="container bg-info text-center py-3 my-2">
+  <h1>This Does Stuff With Arrays</h1>
 </div>
-<div class="buttonDiv">
-  <input type="text" [(ngModel)]="newItem">
-  <button (click)="onAddItem()">Add Item</button>
-  <button (click)="onRemoveItem()">Remove Item</button>
+<div class="container">
+  <div class="navbar navbar-light justify-content-start" style="background-color: rgb(149, 165, 236);">
+    <input class="mr-2" type="text" [(ngModel)]="newItem">
+    <button class="mr-2" (click)="onAddItem()">Add Item</button>
+    <button (click)="onRemoveItem()">Remove Last Item</button>
+  </div>
 </div>
-<div>
-  <ul>
-    <li *ngFor="let item of items">{{ item }}</li>
-  </ul>
+
+<div class="container">
+  <div class="row text">
+    <li class="col-md-4 list-group-item text-center mt-2 rounded"
+      (mouseover)="onBackgroundChange()"
+      (mouseleave)="onChangeBack()"
+      *ngFor="let item of items; let i = index"
+      [ngStyle]="{backgroundColor: colorChange ? 'rgb(149, 165, 236)' : 'white'}">{{item}}
+    </li>
+  </div>
 </div>
+

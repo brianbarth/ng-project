@@ -5,16 +5,18 @@ import { FormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { CartComponent } from './cart/cart.component';
 import { ChangerComponent } from './changer/changer.component';
+import { ScramblePipe } from './shared/scramble.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     CartComponent,
-    ChangerComponent
+    ChangerComponent,
+    ScramblePipe
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

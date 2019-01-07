@@ -1,7 +1,26 @@
-<div>
-  <h1>This is going to change something in the DOM</h1>
+<div class="container bg-info text-center py-3 my-2">
+  <h1>Manipulate List Items</h1>
 </div>
-<div class="buttonDiv">
-  <input type="text">
-  <button>Change Something</button>
+<div class="container">
+  <div class="navbar navbar-light justify-content-start" style="background-color: rgb(149, 165, 236);">
+    <button class="mr-2" (click)="makeAllCaps()">To Upper Case</button>
+    <button class="mr-2" (click)="makeAllLower()">To Lower Case</button>
+    <button *ngIf="!scram" (click)="scramble()">Scramble Letters</button>
+    <button *ngIf="scram" (click)="unscramble()">Unscramble</button>
+  </div>
+</div>
+
+<div class="container">
+  <div *ngIf="caps && !scram" class="row text-center">
+    <li class="col-md-4 list-group-item text-center my-2 rounded" *ngFor="let item of capsItems">{{ item | uppercase }}</li>
+  </div>
+  <div *ngIf="!caps && !scram" class="row text-center">
+    <li class="col-md-4 list-group-item text-center my-2 rounded" *ngFor="let item of capsItems">{{ item | lowercase }}</li>
+  </div>
+  <div *ngIf="scram && !caps" class="row text-center">
+    <li class="col-md-4 list-group-item text-center my-2 rounded" *ngFor="let item of capsItems">{{ item | scramble }}</li>
+  </div>
+  <div *ngIf="scram && caps" class="row text-center">
+    <li class="col-md-4 list-group-item text-center my-2 rounded" *ngFor="let item of capsItems">{{ item | scramble | uppercase }}</li>
+  </div>
 </div>

@@ -6,15 +6,24 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  rootItems = ['Apples', 'Bananas', 'Cherries'];
+  rootItems = ['Apples', 'Bananas', 'Cherries', 'Melon', 'Kiwi', 'Blueberries', 'Cantaloupe', 'Strawberries', 'Blackberries', 'Papaya'];
+  colorHasChanged = false;
 
   onItemWasAdded(newItem) {
-    const transItem = newItem.toUpperCase();
-    this.rootItems.push(transItem);
+    this.rootItems = [ ...this.rootItems, newItem ]
     console.log(this.rootItems);
   }
   onItemWasRemoved() {
-    this.rootItems.pop();
+    this.rootItems = this.rootItems.slice(0, -1);
     console.log(this.rootItems);
   }
+  changeBackground() {
+    this.colorHasChanged = true;
+  }
+  changeBackgroundBack() {
+    this.colorHasChanged = false;
+  }
 }
+
+
+
